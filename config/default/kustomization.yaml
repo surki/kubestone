@@ -16,9 +16,7 @@ namePrefix: kubestone-
 #  someName: someValue
 
 resources:
-  - ./namespace.yaml
-
-bases:
+- ./namespace.yaml
 - ../crd
 - ../rbac
 - ../manager
