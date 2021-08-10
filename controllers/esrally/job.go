@@ -89,8 +89,8 @@ func CreateEsRallyCmd(spec *perfv1alpha1.EsRallySpec, objectMeta *metav1.ObjectM
 	var clientOptions []string
 
 	if spec.Security != nil {
-		clientOptions = append(clientOptions, "use_ssl:"+ strconv.FormatBool(spec.Security.UseSSL))
-		clientOptions = append(clientOptions, "verify_certs:"+ strconv.FormatBool(spec.Security.VerifyCerts))
+		clientOptions = append(clientOptions, "use_ssl:"+strconv.FormatBool(spec.Security.UseSSL))
+		clientOptions = append(clientOptions, "verify_certs:"+strconv.FormatBool(spec.Security.VerifyCerts))
 
 		if spec.Security.BasicAuth != nil {
 			clientOptions = append(clientOptions, fmt.Sprintf("basic_auth_user:'%s'", spec.Security.BasicAuth.Username))

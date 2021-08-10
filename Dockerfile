@@ -1,5 +1,5 @@
 # Build the manager binary
-FROM golang:1.12.5 as builder
+FROM golang:1.16-buster as builder
 
 WORKDIR /workspace
 
@@ -21,7 +21,7 @@ COPY main.go main.go
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on make manager
 
 # Create final image
-FROM alpine:3.10
+FROM gcr.io/distroless/static-debian10
 WORKDIR /
 COPY --from=builder /workspace/bin/manager .
 ENTRYPOINT ["/manager"]
