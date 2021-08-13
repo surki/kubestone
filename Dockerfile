@@ -22,6 +22,9 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on make manager
 
 # Create final image
 FROM gcr.io/distroless/static-debian10
+
+USER nobody:nobody
+
 WORKDIR /
 COPY --from=builder /workspace/bin/manager .
 ENTRYPOINT ["/manager"]

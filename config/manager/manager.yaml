@@ -21,6 +21,7 @@ spec:
         args:
         - --enable-leader-election
         image: xridge/kubestone:latest
+        imagePullPolicy: Always
         name: manager
         resources:
           limits:
@@ -29,4 +30,23 @@ spec:
           requests:
             cpu: 100m
             memory: 20Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["all"]
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      securityContext:
+        fsGroup: 65534
+        runAsUser: 65534
+        runAsGroup: 65534
       terminationGracePeriodSeconds: 10
+      serviceAccountName: "default"
+      automountServiceAccountToken: true
+      volumes:
+      - name: tmp
+        emptyDir:
+          medium: "Memory"
