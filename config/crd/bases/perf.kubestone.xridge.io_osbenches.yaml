@@ -38,8 +38,7 @@ spec:
           type: object
         spec:
           description: OsbenchSpec contains the configuration parameters with scheduling
-            options for the osbench benchmark. The options, testName and command parameters
-            are passed to the osbench benchmarking application.
+            options for the osbench benchmark.
           properties:
             annotations:
               additionalProperties:
@@ -757,8 +756,7 @@ spec:
               type: object
             testName:
               description: TestName is the name of a built-in test (e.g. `create_threads`,
-                `create_`, `cpu`, etc.), or a name of one of the bundled Lua scripts
-                (e.g. `oltp_read_only`), or a path to a custom Lua script.
+                `create_files`, etc.)
               type: string
           required:
           - image

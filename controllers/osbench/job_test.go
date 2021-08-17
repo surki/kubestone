@@ -32,7 +32,7 @@ var _ = Describe("osbench job", func() {
 					ContainElement("/tmp"))
 			})
 			It("should have the same testName", func() {
-				Expect(job.Spec.Template.Spec.Containers[0].Args).To(
+				Expect(job.Spec.Template.Spec.Containers[0].Command).To(
 					ContainElement("create_files"))
 			})
 		})
