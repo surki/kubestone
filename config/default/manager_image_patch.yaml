@@ -8,5 +8,5 @@ spec:
     spec:
       containers:
       # Change the value of image field below to your controller image URL
-      - image: xridge/kubestone:latest
+      - image: surki/kubestone:master
         name: manager
