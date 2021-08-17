@@ -37,4 +37,7 @@ resources:
 - group: perf
   kind: OcpLogtest
   version: v1alpha1
+- group: perf
+  version: v1alpha1
+  kind: Osbench
 version: "2"
