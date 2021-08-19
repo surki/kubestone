@@ -231,6 +231,32 @@ rules:
 - apiGroups:
   - perf.kubestone.xridge.io
   resources:
+  - nighthawks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
+  - nighthawks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
+  - nighthawks/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
   - ocplogtests
   verbs:
   - create

@@ -15,6 +15,7 @@ resources:
 - bases/perf.kubestone.xridge.io_ocplogtests.yaml
 - bases/perf.kubestone.xridge.io_s3benches.yaml
 - bases/perf.kubestone.xridge.io_osbenches.yaml
+- bases/perf.kubestone.xridge.io_nighthawks.yaml
 # +kubebuilder:scaffold:crdkustomizeresource
 
 patchesStrategicMerge:
@@ -33,6 +34,7 @@ patchesStrategicMerge:
 #- patches/webhook_in_ocplogtests.yaml
 #- patches/webhook_in_s3benches.yaml
 #- patches/webhook_in_osbenches.yaml
+#- patches/webhook_in_nighthawks.yaml
 # +kubebuilder:scaffold:crdkustomizewebhookpatch
 
 # [CERTMANAGER] To enable webhook, uncomment all the sections with [CERTMANAGER] prefix.
@@ -50,6 +52,7 @@ patchesStrategicMerge:
 #- patches/cainjection_in_ocplogtests.yaml
 #- patches/cainjection_in_s3benches.yaml
 #- patches/cainjection_in_osbenches.yaml
+#- patches/cainjection_in_nighthawks.yaml
 # +kubebuilder:scaffold:crdkustomizecainjectionpatch
 
 # the following config is for teaching kustomize how to do kustomization for CRDs.
