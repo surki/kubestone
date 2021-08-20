@@ -33,6 +33,8 @@ var _ = Describe("perfbench job", func() {
 					ContainElement("perf"))
 				Expect(job.Spec.Template.Spec.Containers[0].Command).To(
 					ContainElement("bench"))
+				Expect(*job.Spec.Template.Spec.Containers[0].SecurityContext.Privileged).To(
+					BeTrue())
 			})
 		})
 
