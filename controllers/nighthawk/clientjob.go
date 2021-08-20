@@ -36,6 +36,7 @@ func NewClientJob(cr *perfv1alpha1.Nighthawk) *batchv1.Job {
 	backoffLimit := int32(6)
 	job.Spec.BackoffLimit = &backoffLimit
 	job.Spec.Template.Spec.Containers[0].Args = cmdLineArgs
+	job.Spec.Template.Spec.Containers[0].Command = []string{"nighthawk_client"}
 
 	return job
 }

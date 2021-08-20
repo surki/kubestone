@@ -85,8 +85,6 @@ func (r *Reconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	}
 
 	job := NewClientJob(&cr)
-	job.Spec.Template.Spec.Containers[0].Command = []string{"nighthawk_client"}
-
 	if err := r.K8S.CreateWithReference(ctx, job, &cr); err != nil {
 		return ctrl.Result{}, err
 	}

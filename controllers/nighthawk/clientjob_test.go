@@ -59,6 +59,10 @@ var _ = Describe("Client Pod", func() {
 				Expect(job.Spec.BackoffLimit).To(
 					Equal(&defaultBackoffLimit))
 			})
+			It("should have command filled", func() {
+				Expect(job.Spec.Template.Spec.Containers[0].Command).To(
+					Equal([]string{"nighthawk_client"}))
+			})
 		})
 
 		Context("with added annotations", func() {
