@@ -309,6 +309,32 @@ rules:
 - apiGroups:
   - perf.kubestone.xridge.io
   resources:
+  - perfbenches
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
+  - perfbenches/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
+  - perfbenches/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - perf.kubestone.xridge.io
+  resources:
   - pgbenches
   verbs:
   - create

@@ -24,6 +24,7 @@ import (
 	"github.com/xridge/kubestone/controllers/nighthawk"
 	"github.com/xridge/kubestone/controllers/ocplogtest"
 	"github.com/xridge/kubestone/controllers/osbench"
+	"github.com/xridge/kubestone/controllers/perfbench"
 
 	"github.com/xridge/kubestone/controllers/ycsbbench"
 
@@ -190,6 +191,13 @@ func main() {
 		Log: ctrl.Log.WithName("controllers").WithName("Nighthawk"),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Nighthawk")
+		os.Exit(1)
+	}
+	if err = (&perfbench.Reconciler{
+		K8S: k8sAccess,
+		Log: ctrl.Log.WithName("controllers").WithName("perfbench"),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Perfbench")
 		os.Exit(1)
 	}
 	// +kubebuilder:scaffold:builder
